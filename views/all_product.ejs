@@ -1,0 +1,20 @@
+<% include layout/header %>
+	<div class="row">
+		<% product.forEach(function(pro){ %>
+			<div class="col-md-2 m-3">
+				<div class="card" style="width: 200px;">
+					
+					<a  href="/products/detail/<%= pro.link %>">
+						<img src="/product_images/<%= pro._id %>/<%= pro.image %>" class="card-img-top box-img">
+					</a>
+					<div class="card-body">
+
+						<h3><%= pro.title %></h3>
+						<h4 class="text-danger">Rp. <%= pro.price %></h4>
+						
+					</div>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+<% include layout/footer %>

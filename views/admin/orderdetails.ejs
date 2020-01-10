@@ -1,0 +1,36 @@
+<%- include('../layout/adminheader') %>
+<h2>Total Penjualan saat ini</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Jumlah Barang</th>
+        <th scope="col">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <% var qty = 0; %>
+    <% var sub = 0; %>
+    <% orderdetails.forEach(function(ord){ %>
+        <% qty += +ord.product_qty %>
+        <% sub += +ord.subtotal %>
+      <tr>
+        <td><%= ord.product_title %></td>
+        <td><%= ord.product_qty %></td>
+        <td>IDR. <%= ord.subtotal %></td>
+    </tr>
+    <% }); %> 
+    <tr class="bg-success">
+        <th scope="col" >jumlah</th>
+        <th scope="col"><%= qty %></th>
+        <th scope="col">IDR. <%= sub %></th>
+      </tr>
+    </tbody>
+    
+
+</table>
+
+
+
+<%- include('../layout/adminfooter') %>

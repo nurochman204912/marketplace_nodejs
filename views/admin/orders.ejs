@@ -1,0 +1,49 @@
+<%- include('../layout/adminheader') %>
+
+<div class="row">
+    <div class="col">
+
+        <h2 class="page-title">Data Order</h2>
+    </div>
+    <div class="col">
+        <a href="/admin/orderdetails"><button class="btn btn-success">Order Details</button></a>
+    </div>
+</div>
+
+<table class="table table-striped">
+	<thead>
+		<% orders.forEach(function(ord){ %>
+			<div class="card p-3 mb-2">
+				<div class="row">
+					<div class="col-md-4">
+					  <ul class="list-group list-group-flush">
+						  <li class="list-group-item">Nama Penerima</li>
+						  <li class="list-group-item">Alamat</li>
+						  <li class="list-group-item">Email</li>
+						  <li class="list-group-item">No. telp</li>
+						  <li class="list-group-item">tanggal pemesanan</li>
+						  <li class="list-group-item text-right"><h3>TOTAL</h3></li>
+						</ul>
+					</div>
+					<div class="col">
+					  <ul class="list-group list-group-flush">
+						  <li class="list-group-item"><%= ord.nama_penerima %></li>
+						  <li class="list-group-item"><%= ord.alamat %></li>
+						  <li class="list-group-item"><%= ord.email %></li>
+						  <li class="list-group-item"><%= ord.notelepon %></li>
+						  <li class="list-group-item"><%= ord.tanggal %></li>
+						  <li class="list-group-item"><h3 class="text-danger">IDR. <%= ord.total%></h3></li>
+  
+						</ul>
+					</div>
+  
+				</div>
+				<a href="/admin/orders/delete-orders/<%= ord._id %>" class="btn btn-primary confirmDeletionOrd">Selesai</a>
+
+			</div>
+		<% }); %>
+
+	</tbody>
+</table>
+
+<%- include('../layout/adminfooter') %>
